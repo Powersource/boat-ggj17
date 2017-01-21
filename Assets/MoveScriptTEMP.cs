@@ -18,8 +18,6 @@ public class MoveScriptTEMP : MonoBehaviour {
             direction = direction * -1;
             timer = 0;
         }
-
-
         
         gameObject.transform.Translate(0, direction* smoothifier, 0);
 	}
