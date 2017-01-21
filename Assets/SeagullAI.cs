@@ -5,6 +5,7 @@ using UnityEngine;
 public class SeagullAI : MonoBehaviour {
 
 	private float flySpeed = 0.04f;
+	private float birdY = 2.5f;
 
 	private float magnitude = 0.5f;
 	private int offset = 1;
@@ -28,7 +29,7 @@ public class SeagullAI : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		transform.position = new Vector2(transform.position.x - flySpeed, (Mathf.Sin(transform.position.x* magnitude+offset  )+3));
+		transform.position = new Vector2(transform.position.x - flySpeed, (Mathf.Sin(transform.position.x* magnitude+offset  ) + birdY));
 
 		if(transform.position.x < myKillX)
 		{

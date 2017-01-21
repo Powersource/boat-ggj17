@@ -24,6 +24,7 @@ public class GameLogic : MonoBehaviour {
 	private GameObject waves;
 	private float waveWidth = 1040/100f; // 100 pixels per unit
 	private float waveSpeed = 0.03f;
+	private float waveY = -2;
 
 	// Boat
 	private GameObject boat;
@@ -38,7 +39,7 @@ public class GameLogic : MonoBehaviour {
 		waves = new GameObject ("waves");
 		for (int i = 0; i < 20; i++) {
 			GameObject newWave = (GameObject)Instantiate (wavePrefab);
-			newWave.transform.localPosition = new Vector2 (i * waveWidth - 10 * waveWidth, 0);
+			newWave.transform.localPosition = new Vector2 (i * waveWidth - 10 * waveWidth, waveY);
 			newWave.transform.parent = waves.transform;
 		}
 
