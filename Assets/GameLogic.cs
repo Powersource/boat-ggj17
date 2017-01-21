@@ -21,7 +21,7 @@ public class GameLogic : MonoBehaviour {
     public Text myScoreText;
 
 	private GameObject waves;
-	private float waveWidth = 140/100f; // 100 pixels per unit
+	private float waveWidth = 1040/100f; // 100 pixels per unit
 	private float waveSpeed = 0.03f;
 
 	private GameObject boat;
