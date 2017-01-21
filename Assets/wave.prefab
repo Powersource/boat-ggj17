@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4278015385155542}
   - component: {fileID: 212233568824191660}
-  - component: {fileID: 60969971110648992}
   - component: {fileID: 253211016092489918}
+  - component: {fileID: 60947339722894732}
   m_Layer: 0
   m_Name: wave
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60969971110648992
+--- !u!60 &60947339722894732
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -56,19 +56,22 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.34677887, y: 0.6136084}
-      - {x: 0.21000004, y: 0.5819214}
-      - {x: 0.05509281, y: 0.5013097}
-      - {x: -0.15220118, y: 0.40680116}
-      - {x: -0.3165431, y: 0.3713531}
-      - {x: -0.4869666, y: 0.3783285}
-      - {x: -0.5964503, y: 0.42821652}
-      - {x: -0.69087934, y: 0.49912018}
-      - {x: -0.7, y: 0.5}
-      - {x: -0.7, y: -0.7}
-      - {x: 0.7, y: -0.7}
-      - {x: 0.70000005, y: 0.502801}
-      - {x: 0.5245602, y: 0.5982408}
+    - - {x: 0.4680202, y: 2.526698}
+      - {x: 0.34672713, y: 2.527835}
+      - {x: 0.2840817, y: 2.513948}
+      - {x: 0.18038774, y: 2.4849358}
+      - {x: 0.072515965, y: 2.438315}
+      - {x: -0.009452343, y: 2.3985195}
+      - {x: -0.11507177, y: 2.350091}
+      - {x: -0.21686983, y: 2.295751}
+      - {x: -0.34443092, y: 2.2891045}
+      - {x: -0.47462034, y: 2.2919655}
+      - {x: -0.5842476, y: 2.343574}
+      - {x: -0.6959324, y: 2.3971238}
+      - {x: -0.7, y: -2.56}
+      - {x: 0.7, y: -2.56}
+      - {x: 0.7040677, y: 2.4274607}
+      - {x: 0.5511911, y: 2.5033932}
 --- !u!212 &212233568824191660
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +118,7 @@ BuoyancyEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 256
-  m_SurfaceLevel: 0
+  m_SurfaceLevel: 10
   m_Density: 2
   m_LinearDrag: 5
   m_AngularDrag: 5
