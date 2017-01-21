@@ -38,7 +38,7 @@ public class GameLogic : MonoBehaviour {
 
             
             GameObject newFish = (GameObject)Instantiate(myFishToSpawn);
-            newFish.transform.position = new Vector3(13, Random.Range(myMinYSpawn, myMaxYSpawn));
+            newFish.transform.position = new Vector3(16, Random.Range(myMinYSpawn, myMaxYSpawn));
         }
 
 
