@@ -24,6 +24,10 @@ public class GameLogic : MonoBehaviour {
 	private float waveWidth = 140/100f; // 100 pixels per unit
 	private float waveSpeed = 0.05f;
 
+	private GameObject boat;
+	private Vector2 driveDir = Vector2.zero;
+	private float boatSpeed = 0.08f;
+
 	// Use this for initialization
 	void Start () {
         //set myMinYSpawn and myMaxYSpawn depending on screen size
@@ -36,6 +40,8 @@ public class GameLogic : MonoBehaviour {
 			newWave.transform.localPosition = new Vector2 (i * waveWidth - 10 * waveWidth, 0);
 			newWave.transform.parent = waves.transform;
 		}
+
+		boat = GameObject.Find ("boat");
 	}
 	
 	// Update is called once per frame
@@ -47,14 +53,17 @@ public class GameLogic : MonoBehaviour {
         {
             myNextSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
             mySpawnTimer = 0;
-			   
+
             GameObject newFish = (GameObject)Instantiate(myFishToSpawn);
             newFish.transform.position = new Vector3(16, Random.Range(myMinYSpawn, myMaxYSpawn));
         }
+
+		driveDir = new Vector2(Input.GetAxisRaw ("Horizontal"), 0);
 	}
 
 	void FixedUpdate() {
 		updateWaves ();
+		steerBoat ();
 	}
 
 	void updateWaves() {
@@ -65,6 +74,11 @@ public class GameLogic : MonoBehaviour {
 				child.transform.Translate (Vector2.right * 20f * waveWidth);
 			}
 		}
+	}
+
+	void steerBoat() {
+		boat.transform.Translate (driveDir * boatSpeed);
+		boat.transform.
 	}
 
     void UpdateScore(int aAddToScore)
