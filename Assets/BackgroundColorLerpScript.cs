@@ -17,7 +17,7 @@ public class BackgroundColorLerpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       myLerpTime += (Time.deltaTime)*.1f;
+       myLerpTime += (Time.deltaTime)*.0000075f;
        myCurrentBackgroundColor = Color.Lerp(myCurrentBackgroundColor, myTargetColor,myLerpTime);
        gameObject.GetComponent<SpriteRenderer>().color = myCurrentBackgroundColor;
 	}

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4326140219311792}
   - component: {fileID: 198287823822147614}
   - component: {fileID: 199537208466082090}
-  - component: {fileID: 114897987091043094}
   m_Layer: 0
   m_Name: CatchParticleSystem
   m_TagString: Untagged
@@ -42,17 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -71.685005, y: -90.00001, z: 90.00001}
---- !u!114 &114897987091043094
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263197575179944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699615e5179d3904fab4f8ef820525f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &198287823822147614
 ParticleSystem:
   m_ObjectHideFlags: 1
