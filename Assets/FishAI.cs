@@ -5,6 +5,7 @@ using UnityEngine;
 public class FishAI : MonoBehaviour {
 
     private float mySwimSpeed = 0.05f;
+    public GameObject myParticleSystemPrefab;
 
     private float frequency = 11.1f;
 	private float magnitude = 0.5f;
@@ -86,11 +87,20 @@ public class FishAI : MonoBehaviour {
             //Also change to be dynamic based on camera boundries
         }
 
-	}
+        if (transform.position.x < 0)
+        {
+            GameObject newParticleSystem = (GameObject)Instantiate(myParticleSystemPrefab);
+            Destroy(gameObject);
+            //Also change to be dynamic based on camera boundries
+        }
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         myGameLogic.SendMessage("UpdateScore", myScoreValue);
+        GameObject newParticleSystem = (GameObject)Instantiate(myParticleSystemPrefab);
+        newParticleSystem.transform.position = gameObject.transform.position;
         Destroy(gameObject);
     }
 }

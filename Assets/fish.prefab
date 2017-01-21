@@ -68,9 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c903053a87e1c46a9a4061e4d79c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySwimSpeed: 0.05
-  frequency: 20
-  magnitude: 0.5
+  myParticleSystemPrefab: {fileID: 1263197575179944, guid: d0b737ab05c5dbc4aa147fc04a828715,
+    type: 2}
 --- !u!114 &114617227605221854
 MonoBehaviour:
   m_ObjectHideFlags: 1
