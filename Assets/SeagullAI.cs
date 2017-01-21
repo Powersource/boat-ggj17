@@ -43,7 +43,7 @@ public class SeagullAI : MonoBehaviour {
 	{
 		Debug.Log ("Boat dead");
 		Time.timeScale = 0;
-		// TODO: Show game over gui
+		myGameLogic.GetComponent<GameLogic> ().die ();
 
 		Destroy (other.gameObject);
 		Destroy (gameObject);

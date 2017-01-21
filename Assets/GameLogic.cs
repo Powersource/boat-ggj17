@@ -31,6 +31,8 @@ public class GameLogic : MonoBehaviour {
 	private Vector2 driveDir = Vector2.zero;
 	private float boatSpeed = 0.08f;
 
+	private GameObject gameOver;
+
 	// Use this for initialization
 	void Start () {
         //set myMinYSpawn and myMaxYSpawn depending on screen size
@@ -44,6 +46,10 @@ public class GameLogic : MonoBehaviour {
 		}
 
 		boat = GameObject.Find ("boat");
+
+		gameOver = GameObject.Find ("gameOver");
+
+		gameOver.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -93,4 +99,13 @@ public class GameLogic : MonoBehaviour {
         myScoreText.SendMessage("UpdateScore", myScore);
         //Debug.Log(myScore);
     }
+
+	public void die() {
+		gameOver.SetActive(true);
+	}
+
+	public void restartLevel() {
+		Time.timeScale = 1;
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("scene0");
+	}
 }
