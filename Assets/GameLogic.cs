@@ -22,6 +22,7 @@ public class GameLogic : MonoBehaviour {
 
 	private GameObject waves;
 	private float waveWidth = 140/100f; // 100 pixels per unit
+	private float waveSpeed = 0.05f;
 
 	// Use this for initialization
 	void Start () {
@@ -46,13 +47,10 @@ public class GameLogic : MonoBehaviour {
         {
             myNextSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
             mySpawnTimer = 0;
-
-            
+			   
             GameObject newFish = (GameObject)Instantiate(myFishToSpawn);
             newFish.transform.position = new Vector3(16, Random.Range(myMinYSpawn, myMaxYSpawn));
         }
-
-
 	}
 
 	void FixedUpdate() {
@@ -62,7 +60,7 @@ public class GameLogic : MonoBehaviour {
 	void updateWaves() {
 		for (int i = 0; i<20; i++) {
 			GameObject child = waves.transform.GetChild (i).gameObject;
-			child.transform.Translate (Vector2.left * 0.1f);
+			child.transform.Translate (Vector2.left * waveSpeed);
 			if (child.transform.position.x < -10 * waveWidth) {
 				child.transform.Translate (Vector2.right * 20f * waveWidth);
 			}
