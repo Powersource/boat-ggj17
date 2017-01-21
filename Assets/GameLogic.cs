@@ -35,7 +35,6 @@ public class GameLogic : MonoBehaviour {
         
 		waves = new GameObject ("waves");
 		for (int i = 0; i < 20; i++) {
-			Debug.Log ("i: " + i);
 			GameObject newWave = (GameObject)Instantiate (wavePrefab);
 			newWave.transform.localPosition = new Vector2 (i * waveWidth - 10 * waveWidth, 0);
 			newWave.transform.parent = waves.transform;
