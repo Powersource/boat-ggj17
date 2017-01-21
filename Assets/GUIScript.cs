@@ -21,6 +21,5 @@ public class GUIScript : MonoBehaviour {
     void UpdateScore(int aNewScore)
     {
         myScoreText.text = "Score: " + aNewScore.ToString();
-        Debug.Log(aNewScore);
     }
 }

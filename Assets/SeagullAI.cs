@@ -5,7 +5,7 @@ using UnityEngine;
 public class SeagullAI : MonoBehaviour {
 
 	private float flySpeed = 0.04f;
-	private float birdY = 2.5f;
+	private float birdY = 1.5f;
 
 	private float magnitude = 0.5f;
 	private int offset = 1;
@@ -41,7 +41,11 @@ public class SeagullAI : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		myGameLogic.SendMessage("UpdateScore", myScoreValue);
-		Destroy(gameObject);
+		Debug.Log ("Boat dead");
+		Time.timeScale = 0;
+		// TODO: Show game over gui
+
+		Destroy (other.gameObject);
+		Destroy (gameObject);
 	}
 }

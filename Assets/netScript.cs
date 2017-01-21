@@ -15,15 +15,7 @@ public class netScript : MonoBehaviour {
 	
 
 	void Update () {
-        if (Input.GetKey(KeyCode.DownArrow) && gameObject.transform.position.y > -4)
-        {
-            moveSpeed = netMoveSpeed * -1;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow) && gameObject.transform.position.y < 1)
-        {
-            moveSpeed = netMoveSpeed * 1;
-        }
+		moveSpeed = netMoveSpeed * Input.GetAxisRaw ("Vertical");
 
         moveSpeed = moveSpeed * moveSpeedFalloff;
         gameObject.transform.Translate(0, moveSpeed, 0);
