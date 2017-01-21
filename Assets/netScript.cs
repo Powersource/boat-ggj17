@@ -20,7 +20,7 @@ public class netScript : MonoBehaviour {
             moveSpeed = netMoveSpeed * -1;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) && gameObject.transform.localPosition.y > 0.5)
+        if (Input.GetKey(KeyCode.UpArrow) && gameObject.transform.position.y < 1)
         {
             moveSpeed = netMoveSpeed * 1;
         }
