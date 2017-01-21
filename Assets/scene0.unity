@@ -121,6 +121,7 @@ MonoBehaviour:
   myFishToSpawn: {fileID: 1969141935750212, guid: 57ec29dbe4c889e4a8d7386cbaeead47,
     type: 2}
   wavePrefab: {fileID: 1094692062651726, guid: 2683e0bf1856f434a9b9b3974e7efdf4, type: 2}
+  birdPrefab: {fileID: 1427336145068004, guid: cd241b8b508fc46159523753f89d0d89, type: 2}
   minSpawnDelay: 1
   maxSpawnDelay: 3
   myScoreText: {fileID: 975940464}

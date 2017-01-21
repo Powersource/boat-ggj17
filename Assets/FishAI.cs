@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FishAI : MonoBehaviour {
 
-    public float mySwimSpeed = 1f;
+    private float mySwimSpeed = 0.05f;
 
-    public float frequency = 11.1f;
-    public float magnitude = 0.5f;
+    private float frequency = 11.1f;
+	private float magnitude = 0.5f;
     private int offset = 1;
     private Vector3 axis;
 
@@ -82,7 +82,6 @@ public class FishAI : MonoBehaviour {
         
         if(transform.position.x < myKillX)
         {
-            Debug.Log("Fish destroying itself...");
             Destroy(gameObject);
             //Also change to be dynamic based on camera boundries
         }

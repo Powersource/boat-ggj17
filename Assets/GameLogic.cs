@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameLogic : MonoBehaviour {
     public GameObject myFishToSpawn;
 	public GameObject wavePrefab;
+	public GameObject birdPrefab;
 
     public float minSpawnDelay = 1.5f;
     public float maxSpawnDelay = 2.5f;
@@ -24,6 +25,7 @@ public class GameLogic : MonoBehaviour {
 	private float waveWidth = 1040/100f; // 100 pixels per unit
 	private float waveSpeed = 0.03f;
 
+	// Boat
 	private GameObject boat;
 	private Vector2 driveDir = Vector2.zero;
 	private float boatSpeed = 0.08f;
@@ -55,6 +57,11 @@ public class GameLogic : MonoBehaviour {
 
             GameObject newFish = (GameObject)Instantiate(myFishToSpawn);
             newFish.transform.position = new Vector3(16, Random.Range(myMinYSpawn, myMaxYSpawn));
+
+			//Spawn a bird as well, maybe move this into its own thing
+			GameObject newBird = (GameObject) Instantiate(birdPrefab);
+			// This only affects the x
+			newBird.transform.position = new Vector2 (16, Random.Range (myMinYSpawn + 5, myMaxYSpawn + 5));
         }
 
 		driveDir = new Vector2(Input.GetAxisRaw ("Horizontal"), 0);
