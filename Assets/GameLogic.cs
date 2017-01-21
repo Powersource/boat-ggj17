@@ -11,8 +11,8 @@ public class GameLogic : MonoBehaviour {
     private float myNextSpawnDelay = 1f;
     private float mySpawnTimer;
 
-    private float myMinYSpawn = -4.5f;
-    private float myMaxYSpawn = -2;
+    private float myMinYSpawn = -3.5f;
+    private float myMaxYSpawn = -2.5f;
 
     private int myScore = 0;
 

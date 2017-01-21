@@ -26,6 +26,8 @@ public class FishAI : MonoBehaviour {
         myScoreValue = Random.Range(1, 11);
 
         offset = Random.Range(1, 5);
+
+        
         
         switch(myScoreValue)
         {
@@ -73,10 +75,10 @@ public class FishAI : MonoBehaviour {
         
 	}
 	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 
-        transform.position = new Vector2(transform.position.x - mySwimSpeed, (Mathf.Sin(transform.position.x* magnitude)));
+        transform.position = new Vector2(transform.position.x - mySwimSpeed, (Mathf.Sin(transform.position.x* magnitude+offset  )-2));
         
         if(transform.position.x < myKillX)
         {
@@ -89,7 +91,7 @@ public class FishAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        myGameLogic.SendMessageUpwards("UpdateScore", myScoreValue);
+        myGameLogic.SendMessage("UpdateScore", myScoreValue);
         Destroy(gameObject);
     }
 }
