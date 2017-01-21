@@ -78,7 +78,6 @@ public class GameLogic : MonoBehaviour {
 
 	void steerBoat() {
 		boat.transform.Translate (driveDir * boatSpeed);
-		boat.transform.
 	}
 
     void UpdateScore(int aAddToScore)
