@@ -68,6 +68,7 @@ public class GameLogic : MonoBehaviour {
 		gameOver = GameObject.Find ("gameOver");
 
 		gameOver.SetActive(false);
+        
 	}
 	
 	// Update is called once per frame
@@ -110,6 +111,12 @@ public class GameLogic : MonoBehaviour {
         }
 
 		driveDir = new Vector2(Input.GetAxisRaw ("Horizontal"), 0);
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameExit();
+        }
+            
 	}
 
 	void FixedUpdate() {
@@ -145,10 +152,20 @@ public class GameLogic : MonoBehaviour {
 
 	public void die() {
 		gameOver.SetActive(true);
-	}
+    }
 
 	public void restartLevel() {
 		Time.timeScale = 1;
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("scene0");
 	}
+
+    public int getScore()
+    {
+        return myScore;
+    }
+
+    public void gameExit()
+    {
+        Application.Quit();
+    }
 }

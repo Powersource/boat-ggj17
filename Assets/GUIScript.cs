@@ -16,6 +16,7 @@ public class GUIScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        myScoreText.color = Color.Lerp(Color.cyan, Color.white, Mathf.PingPong(Time.time, 1));
 	}
 
     void UpdateScore(int aNewScore)
