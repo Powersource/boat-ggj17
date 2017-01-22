@@ -5,7 +5,9 @@ using UnityEngine;
 public class BackgroundColorLerpScript : MonoBehaviour {
 
     public Color myStartColor;
+
     public Color myTargetColor;
+
     private Color myCurrentBackgroundColor;
     private float myLerpTime = 0;
 
@@ -17,8 +19,11 @@ public class BackgroundColorLerpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       myLerpTime += (Time.deltaTime)*.0000075f;
-       myCurrentBackgroundColor = Color.Lerp(myCurrentBackgroundColor, myTargetColor,myLerpTime);
+       myLerpTime += (Time.deltaTime)* .000075f;
+
+       myCurrentBackgroundColor = Color.Lerp(myCurrentBackgroundColor, myTargetColor, myLerpTime);
        gameObject.GetComponent<SpriteRenderer>().color = myCurrentBackgroundColor;
-	}
+
+
+    }
 }

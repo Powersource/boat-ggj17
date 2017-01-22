@@ -7,6 +7,8 @@ public class FishAI : MonoBehaviour {
     private float mySwimSpeed = 0.05f;
     public GameObject myParticleSystemPrefab;
 
+
+
     private float frequency = 11.1f;
 	private float magnitude = 0.5f;
     private int offset = 1;
@@ -22,13 +24,11 @@ public class FishAI : MonoBehaviour {
         //make dynamic based on camera bounds!
 
 
-        myKillX = -14;
+        myKillX = -15;
         myGameLogic = GameObject.FindGameObjectWithTag("GameLogic").gameObject;
         myScoreValue = Random.Range(1, 11);
 
         offset = Random.Range(1, 5);
-
-        
         
         switch(myScoreValue)
         {
@@ -39,6 +39,7 @@ public class FishAI : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                 myScoreValue = 10;
                 magnitude = 0.3f;
+                mySwimSpeed = mySwimSpeed * 0.9f;
                 break;
 
             case 4:
@@ -56,6 +57,7 @@ public class FishAI : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
                 myScoreValue = 20;
                 magnitude = 0.8f;
+                mySwimSpeed = mySwimSpeed * 1.05f;
                 break;
 
             
@@ -64,6 +66,7 @@ public class FishAI : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 myScoreValue = 30;
                 magnitude = 1;
+                mySwimSpeed = mySwimSpeed * 1.1f;
                 break;
 
             case 10:
@@ -71,6 +74,7 @@ public class FishAI : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                 myScoreValue = 50;
                 magnitude = 1.1f;
+                mySwimSpeed = mySwimSpeed * 1.2f;
                 break;
         }
         
@@ -87,12 +91,6 @@ public class FishAI : MonoBehaviour {
             //Also change to be dynamic based on camera boundries
         }
 
-        if (transform.position.x < 0)
-        {
-            GameObject newParticleSystem = (GameObject)Instantiate(myParticleSystemPrefab);
-            Destroy(gameObject);
-            //Also change to be dynamic based on camera boundries
-        }
 
     }
 

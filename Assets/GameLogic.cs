@@ -10,8 +10,24 @@ public class GameLogic : MonoBehaviour {
 
     public float minSpawnDelay = 1.5f;
     public float maxSpawnDelay = 2.5f;
+
+    public float minBirdSpawnDelay = 1.5f;
+    public float maxBirdSpawnDelay = 3.0f;
+    public float earlyExtraDelay = 2.0f;
+
+    public float beforeSpawnBirdsDelay = 5.0f;
+
+    public AudioClip standardFishAudio;
+    public AudioClip goldFishAudio;
+
+    private AudioClip myPickupAudio;
+    private AudioSource myAudioSource;
+
+    private bool spawnBirds = false;
     private float myNextSpawnDelay = 1f;
+    private float myNextBirdSpawnDelay = 1f;
     private float mySpawnTimer;
+    private float myBirdSpawnTimer;
 
     private float myMinYSpawn = -3.5f;
     private float myMaxYSpawn = -2.5f;
@@ -22,7 +38,7 @@ public class GameLogic : MonoBehaviour {
     public Text myScoreText;
 
 	private GameObject waves;
-	private float waveWidth = 1040/100f; // 100 pixels per unit
+	private float waveWidth = 1039/100f; // 100 pixels per unit
 	private float waveSpeed = 0.03f;
 	private float waveY = -2;
 
@@ -45,6 +61,8 @@ public class GameLogic : MonoBehaviour {
 			newWave.transform.parent = waves.transform;
 		}
 
+        myAudioSource = gameObject.GetComponent<AudioSource>();
+
 		boat = GameObject.Find ("boat");
 
 		gameOver = GameObject.Find ("gameOver");
@@ -64,11 +82,31 @@ public class GameLogic : MonoBehaviour {
 
             GameObject newFish = (GameObject)Instantiate(myFishToSpawn);
             newFish.transform.position = new Vector3(16, Random.Range(myMinYSpawn, myMaxYSpawn));
+			
+        }
 
-			//Spawn a bird as well, maybe move this into its own thing
-			GameObject newBird = (GameObject) Instantiate(birdPrefab);
-			// This only affects the x
-			newBird.transform.position = new Vector2 (16, Random.Range (myMinYSpawn + 5, myMaxYSpawn + 5));
+        myBirdSpawnTimer += Time.deltaTime;
+
+        if (spawnBirds)
+        {
+            if (myBirdSpawnTimer > myNextBirdSpawnDelay)
+            {
+                GameObject newBird = (GameObject)Instantiate(birdPrefab);
+                // This only affects the x
+                newBird.transform.position = new Vector2(16, Random.Range(myMinYSpawn + 5, myMaxYSpawn + 5));
+                myNextBirdSpawnDelay = Random.Range(minBirdSpawnDelay, maxBirdSpawnDelay)+earlyExtraDelay;
+                myBirdSpawnTimer = 0;
+
+                if (earlyExtraDelay > 0)
+                    earlyExtraDelay -= 0.5f;
+            }
+        }
+
+        else
+        {
+            beforeSpawnBirdsDelay -= Time.deltaTime;
+            if (beforeSpawnBirdsDelay < 0)
+                spawnBirds = true;
         }
 
 		driveDir = new Vector2(Input.GetAxisRaw ("Horizontal"), 0);
@@ -95,6 +133,11 @@ public class GameLogic : MonoBehaviour {
 
     void UpdateScore(int aAddToScore)
     {
+        if (aAddToScore == 50)
+            myAudioSource.PlayOneShot(goldFishAudio,0.45f);
+        else
+            myAudioSource.PlayOneShot(standardFishAudio,0.85f);
+
         myScore += aAddToScore;
         myScoreText.SendMessage("UpdateScore", myScore);
         //Debug.Log(myScore);
