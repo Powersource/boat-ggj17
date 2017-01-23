@@ -20,6 +20,9 @@ public class netScript : MonoBehaviour {
         moveSpeed = moveSpeed * moveSpeedFalloff;
         gameObject.transform.Translate(0, moveSpeed, 0);
 
+		if (gameObject.transform.localPosition.y > -0.8f) {
+			gameObject.transform.localPosition = new Vector2(0, -0.8f);
+		}
 
     }
 }
